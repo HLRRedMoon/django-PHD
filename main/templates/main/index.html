@@ -1,0 +1,199 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oxygen+Mono&family=Oxygen:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'workflow/CSS/style.css' %}">
+    <title>PHD_dignosis</title>
+</head>
+
+<body>
+    <nav class="nav_bar">
+        <ul class="ulist">
+            <li>
+                <h1 class="username"><a href="{% url 'main:specialist' %}"> <i class="fa-solid fa-heart-pulse"></i>
+                        <span>Username</span></a></h1>
+            </li>
+            <li><a href="{% url 'main:profile' %}" class="profile">Profile</a></li>
+            <li><a href="{% url 'main:history' %}" class="history">History</a></li>
+        </ul>
+    </nav>
+    <section class="sec-att">
+        <div class="trans">
+            <div class="return"><a class="arrow" href="{%url 'main:welcome'%}">←</a></div>
+        <div class="bullets">
+            <span class="bullet current"></span>
+            <span class="bullet"></span>
+            <span class="bullet"></span>
+            <span class="bullet"></span>
+            <button class="nav-arrow left-arrow" onclick="navigateLeft()">&#10094;</button>
+            <button class="nav-arrow right-arrow" onclick="navigateRight()">&#10095;</button>
+        </div>
+        <div class="empty"></div>
+    </div>
+    <form method="post" action="{% url 'main:specialist' %}">
+        {% csrf_token %}
+        <ul class="attri-list">
+            <div class="step" id="step1">
+                <li class="inp-wr">
+                    <div class="inp-all">
+                        <h3>Age:</h3><span class="note">here you need only to enter your age!</span>
+                    </div>
+                    <input class="inp-date" type="date" name="birthdate" step="1" placeholder="only numbers accepted">
+                </li>
+                <li class="chi">
+                    <div class="inp-all">
+                        <h3>Gender:</h3> <span class="note">there is only two genders</span>
+                    </div>
+                    <input class="chi-rad" type="radio" name="gender" value="1">Male
+                    <input class="chi-rad" type="radio" name="gender" value="0">Female
+                </li>
+                <!-- <div class="sub-div"> -->
+                <button class="sub-but" type="button" onclick="nextStep(2)">Next</button>
+                <!-- </div> -->
+             </div>
+            <div class="step hidden" id="step2">
+                <li class="opti">
+                    <div class="inp-all">
+                        <h3>chest pain:</h3> <span class="note">Typical angian = regular pain from the heart,
+                            atypical = non-regular pain,
+                            non-angina = there is pain but not from the heart,
+                            Asymptomatic = there is no pain</span>
+                    </div>
+                    <select class="inp-sel" name="chest-pain">
+                        <option value="0">Typical angina</option>
+                        <option value="1">Atypical angina</option>
+                        <option value="2">non-anginal pain</option>
+                        <option value="3">Asymptomatic</option>
+                    </select>
+                </li>
+                <li class="inp-wr">
+                    <div class="inp-all">
+                        <h3> resting blood pressure: </h3> <span class="note">your blood pressure when you are
+                            resting!</span>
+                    </div>
+                    <input class="inp-num" type="number" name="res-blood" min="1" max="700" step="1" placeholder="only numbers in mm/Hg">
+                </li>
+                <li class="inp-wr">
+                    <div class="inp-all">
+                        <h3>Cholesterol:</h3><span class="note">total amount of cholesterol in your blood!</span>
+                    </div>
+                    <input class="inp-num" type="number" name="Cholesterol" min="1" max="700" step="1" placeholder="only numbers in mg/dl">
+                </li>
+                <li class="chi">
+                    <div class="inp-all">
+                        <h3>fasting blood sugar > 120 mg/dl:</h3><span class="note">you have to be fasting at least 9
+                            hours</span>
+                    </div>
+                    <input class="chi-rad" type="radio" name="fasting" value="1">True
+                    <input class="chi-rad" type="radio" name="fasting" value="0">False
+                </li>
+                <button class="sub-but" type="button" onclick="previousStep(1)">Previous</button>
+                <button class="sub-but" type="button" onclick="nextStep(3)">Next</button>
+            </div>
+            <div class="step hidden" id="step3">
+                <li class="opti">
+                    <div class="inp-all">
+                        <h3>resting electrocardiographic:</h3><span class="note">test that records the heart’s rhythm
+                            and
+                            can detect abnormalities in its function!</span>
+                    </div>
+                    <select class="inp-sel" name="electrocardiographic">
+                        <option value="0">normal</option>
+                        <option value="1">having ST-T wave abnormality</option>
+                        <option value="2">left ventricular hypertrophy (LVH)</option>
+                    </select>
+                </li>
+                <li class="inp-wr">
+                    <div class="inp-all">
+                        <h3>maximum heart rate achieved:</h3><span class="note">here you need only to enter your heart
+                            highest rate!</span>
+                    </div>
+                    <input class="inp-num" type="number" name="maximum" min="1" max="3000" step="1"
+                        placeholder="only numbers accepted">
+                </li>
+                <li class="chi">
+                    <div class="inp-all">
+                        <h3>Exercise induced angina:</h3><span class="note">chest pain or discomfort during physical
+                            activity.</span>
+                    </div>
+                    <input class="chi-rad" type="radio" name="exang" value="1">Yes
+                    <input class="chi-rad" type="radio" name="exang" value="0">No
+                </li>
+                <li class="inp-wr">
+                    <div class="inp-all">
+                        <h3>ST Depression (oldpeak):</h3><span class="note">ST depression refers to a finding on an
+                            electrocardiogram (ECG) wherein the trace in
+                            the ST segment is abnormally low below the baseline</span>
+                    </div>
+                    <input class="inp-num" type="number" name="ST" min="1" max="3000" step="1.1"
+                        placeholder="only numbers accepted">
+                </li>
+                <button class="sub-but" type="button" onclick="previousStep(2)">Previous</button>
+                <button class="sub-but" type="button" onclick="nextStep(4)">Next</button>
+            </div>
+            <div class="step hidden" id="step4">
+                <li class="opti">
+                    <div class="inp-all">
+                        <h3>slope of the peak exercise ST segment:</h3>
+                    </div>
+                    <select class="inp-sel" name="slope">
+                        <option value="0">upsloping</option>
+                        <option value="1">flat</option>
+                        <option value="2">downsloping</option>
+                    </select>
+                </li>
+                <li class="opti">
+                    <div class="inp-all">
+                        <h3>(CA)Number of Major Vessels Colored by Flourosopy:</h3>
+                    </div> <select class="inp-sel" name="CA">
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                    </select>
+                </li>
+                <li class="opti">
+                    <div class="inp-all">
+                        <h3>(thal)Thalassemia:</h3><span class="note"> blood disorder that affects the production of
+                            hemoglobin.</span>
+                    </div>
+                    <select class="inp-sel" name="thalassemia">
+                        <option value="0">Normal</option>
+                        <option value="1">Fixed defect</option>
+                        <option value="2">Reversable defect</option>
+                    </select>
+                </li>
+                <button class="sub-but" type="button" onclick="previousStep(3)">Previous</button>
+                <button class="sub-but" type='submit'>Submit</button>
+            </div>
+        </ul>
+    </form>
+    </section>
+    <!-- <div class="sub-div"> -->
+
+    <!-- </div> -->
+
+    <footer>
+        <h2 class="nametag">ABDULLAH &middot; MUHANNED</h2>
+        <ul class="footlist">
+            <li><a href="mailto:aoob2001@gmail.com"><i class="fa-solid fa-envelope" aria-hidden="true"></i> <span
+                        class="sr-only"> Email</span></a></li>
+            <li><a href="mailto:mohanadalhoqail@gmail.com"><i class="fa-solid fa-envelope" aria-hidden="true"></i> <span
+                        class="sr-only"> Email</span></a></li>
+        </ul>
+        <p class="copyright">&copy; 2024 ABDULLAH&MUHANNED. All rights reserved.</p>
+    </footer>
+    <!-- <script src="https://kit.fontawesome.com/484bd66d3c.js" crossorigin="anonymous"></script> -->
+    <script src="{% static 'workflow/js/script.js' %}"></script>
+</body>
+
+</html>

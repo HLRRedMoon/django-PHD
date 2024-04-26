@@ -1,0 +1,29 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oxygen+Mono&family=Oxygen:wght@400;700&display=swap"
+        rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'workflow/CSS/style.css' %}">
+    <title>PHD_dignosis</title>
+</head>
+<body>
+    <nav class="nav_bar">
+        <ul class="ulist">
+            <li>
+                <h1 class="username"><a href="{% url 'main:specialist' %}"> <i class="fa-solid fa-heart-pulse"></i>
+                        <span>Username</span></a></h1>
+            </li>
+            <li><a href="{% url 'main:profile' %}" class="profile">Profile</a></li>
+            <li><a href="{% url 'main:history' %}" class="history">History</a></li>
+        </ul>
+    </nav>
+</body>
+</html>

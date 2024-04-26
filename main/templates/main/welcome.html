@@ -1,0 +1,44 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Oxygen+Mono&family=Oxygen:wght@400;700&display=swap"
+            rel="stylesheet">
+            <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@400;500&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+        <link rel="stylesheet" href="{%static 'workflow/CSS/welcome_style.css'%}">
+        <title>PHD_dignosis</title>
+    </head>
+<body>
+    <div class="wel">
+        <h1 class="message">Welcome!</h1>
+        <span class="note">This website is a heart disease prediction for your health care,
+             you are free to use it anytime. </span>
+        <span class="sec-note">Please choose a form to fill based on your postion!</span>
+    </div>
+    <div class="bot">
+        <a class="chois" href="{% url 'main:specialist' %}"><botton>Specialist</botton></a>
+        <botton class="chois">Patient</botton>
+        
+    </div>
+    <span class="sec-note">New user?<a href="" class="login"> Signin</a></span>
+    <span class="sec-note">Already a registered user? <a href="" class="login">Login</a></span>
+    <footer>
+        <h2 class="nametag">ABDULLAH &middot; MUHANNED</h2>
+        <ul class="footlist">
+            <li><a href="mailto:aoob2001@gmail.com"><i class="fa-solid fa-envelope" aria-hidden="true"></i> <span
+                        class="sr-only"> Email</span></a></li>
+            <li><a href="mailto:mohanadalhoqail@gmail.com"><i class="fa-solid fa-envelope" aria-hidden="true"></i> <span
+                        class="sr-only"> Email</span></a></li>
+        </ul>
+        <p class="copyright">&copy; 2024 ABDULLAH&MUHANNED. All rights reserved.</p>
+    </footer>
+</body>
+</html>

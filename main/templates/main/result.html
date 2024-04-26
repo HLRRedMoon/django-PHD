@@ -1,0 +1,60 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oxygen+Mono&family=Oxygen:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'workflow/CSS/style.css' %}">
+    <title>PHD_dignosis</title>
+</head>
+
+<body>
+    <nav class="nav_bar">
+        <ul class="ulist">
+            <li>
+                <h1 class="username"><a href="{% url 'main:specialist' %}"> <i class="fa-solid fa-heart-pulse"></i>
+                        <span>Username</span></a></h1>
+            </li>
+            <li><a href="{% url 'main:profile' %}" class="profile">Profile</a></li>
+            <li><a href="{% url 'main:history' %}" class="history">History</a></li>
+        </ul>
+    </nav>
+    <div class="return"><a class="arrow" href="{%url 'main:specialist'%}">←</a></div>
+    <h1>Prediction Results</h1>
+    <p><strong>Prediction of Heart Disease:</strong> {{ prediction }}</p>
+    <p><strong>Age:</strong> {{ age }}</p>
+    <p><strong>gender:</strong> {{ gender }}</p>
+    <p><strong>chest_pain:</strong> {{ chest_pain }}</p>
+    <p><strong>res_blood:</strong> {{ res_blood }}</p>
+    <p><strong>Cholesterol:</strong> {{ Cholesterol }}</p>
+    <p><strong>fasting:</strong> {{ fasting }}</p>
+    <p><strong>electrocardiographic:</strong> {{ electrocardiographic }}</p>
+    <p><strong>maximum:</strong> {{ maximum }}</p>
+    <p><strong>exang:</strong> {{ exang }}</p>
+    <p><strong>ST:</strong> {{ ST }}</p>
+    <p><strong>slope:</strong> {{ slope }}</p>
+    <p><strong>CA:</strong> {{ CA }}</p>
+    <p><strong>thalassemia:</strong> {{ thalassemia }}</p>
+
+    <footer>
+    <h2 class="nametag">ABDULLAH &middot; MUHANNED</h2>
+    <ul class="footlist">
+        <li><a href="mailto:aoob2001@gmail.com"><i class="fa-solid fa-envelope" aria-hidden="true"></i> <span
+                    class="sr-only"> Email</span></a></li>
+        <li><a href="mailto:mohanadalhoqail@gmail.com"><i class="fa-solid fa-envelope" aria-hidden="true"></i> <span
+                    class="sr-only"> Email</span></a></li>
+    </ul>
+    <p class="copyright">&copy; 2024 ABDULLAH&MUHANNED. All rights reserved.</p>
+</footer>
+<!-- <script src="https://kit.fontawesome.com/484bd66d3c.js" crossorigin="anonymous"></script> -->
+<script src="{% static 'workflow/js/script.js' %}"></script>
+</body>
+
+</html>
