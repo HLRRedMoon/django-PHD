@@ -20,30 +20,12 @@
     <section class="pass">
         <div class="back">
             <ui class="ch">
-                <li class="sh-name">
-                    <div class="user-info">
-                    <span class="user-name">First name: </span>
-                    <input class="inp-num" type="string" min="1" max="700"  placeholder="Enter your First Name">
-                    </div>
-                    <div class="user-info">
-                    <span class="user-name">Last name:</span>
-                    <input class="inp-num" type="string" min="1" max="700"  placeholder="Enter your Last Name">
-                    </div>
-                </li>
                 <li class="user-input">
                     <span class="user-data">Username: </span>
                     <input class="inp-num" type="string" min="1" max="700"  placeholder="Enter your UserName">
                 </li>
                 <li class="user-input">
-                    <span class="user-data">Email: </span>
-                    <input class="inp-num" type="email" min="1" max="700"  placeholder="Enter your Email">
-                </li>
-                <li class="user-input">
                     <span class="user-data">your password: </span>
-                    <input class="inp-num" type="password" min="8" max="700" step="1" placeholder="Enter your password here!">
-                </li>
-                <li class="user-input">
-                    <span class="user-data">Confirm Password: </span>
                     <input class="inp-num" type="password" min="8" max="700" step="1" placeholder="Enter your password here!">
                 </li>
                 <div class="bot">
@@ -52,7 +34,7 @@
             </ui>
         </div>
         </section>
-        <span class="sec-note">Already a registered user? <a href="{%url 'main:login'%}" class="login">Login</a></span>
+        <span class="sec-note">New user?<a href="{%url 'main:signin'%}" class="login"> Signin</a></span>
         <footer>
             <h2 class="nametag">ABDULLAH &middot; MUHANNED</h2>
             <ul class="footlist">

@@ -8,6 +8,11 @@ from django.conf import settings
 def welcome(request):
     return render(request, 'main/welcome.html')
 
+def signin(request):
+    return render(request, 'main/signin.html')
+
+def login(request):
+    return render(request, 'main/login.html')
 # def specialist(request):
 #     # return HttpResponse("Hello <h1>HLR</h1>, Welcome to your site! ")
 #     # return render(request=request, template_name="main/index.html", 

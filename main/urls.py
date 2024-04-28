@@ -22,6 +22,8 @@ app_name = "main"
 urlpatterns = [
     path("", views.welcome, name='welcome'), 
     path("specialist/",views.prediction, name="specialist"),
+    path("signin/", views.signin , name="signin"),
+    path("login/",views.login, name="login"),
     path("profile/",views.profile, name="profile"),
     path("history/",views.history, name="history"),
 ]
