@@ -18,19 +18,47 @@
 <body>
     <nav class="nav_bar">
         <ul class="ulist">
+            {% if request.user.is_authenticated %}
             <li>
-                <h1 class="username"><a href="{% url 'main:specialist' %}"> <i class="fa-solid fa-heart-pulse"></i>
-                        <span>Username</span></a></h1>
+                <h1 class="username"><a href="{% url 'main:welcome' %}"><i class="fa-solid fa-heart-pulse"></i>
+                        <span>{{request.user.username}}</span></a></h1>
             </li>
+            {% else %}
+            <li>
+                <h1 class="username"><a href="{% url 'main:specialist' %}"><i class="fa-solid fa-heart-pulse"></i>
+                        <span>Guest</span></a></h1>
+            </li>
+            {% endif %}
             <li><a href="{% url 'main:profile' %}" class="profile">Profile</a></li>
             <li><a href="{% url 'main:history' %}" class="history">History</a></li>
         </ul>
     </nav>
-    <div class="return"><a class="arrow" href="{%url 'main:specialist'%}">←</a></div>
-    <h1>Prediction Results</h1>
-    <p><strong>Prediction of Heart Disease:</strong> {{ prediction }}</p>
-    <p><strong>Age:</strong> {{ age }}</p>
-    <p><strong>gender:</strong> {{ gender }}</p>
+    <div class="return"><a class="arrow" href="{%url 'main:specialist'%}"><i class="fa-solid fa-arrow-left-long"></i><span class="arrow-note">Return to form page</span></a></div>
+    {%if prediction < 25  %}
+    <section class="sec-att">
+        <ul class="attri-list">
+    <li class="chi">
+        <div class="inp-all">
+            <h3>Prediction of Heart Disease:</h3> <span class="note">there is no problem</span>
+        </div>
+        <h1 class='username'>{{ prediction }}%</h1>
+    </li>
+</ul>
+</section>
+    {%else%}
+    <section class="sec-att">
+        <ul class="attri-list">
+    <li class="chi">
+        <div class="inp-all">
+            <h3>Prediction of Heart Disease:</h3> <span class="note">there is a problem</span>
+        </div>
+        <h1 class='username'>{{ prediction }}%</h1>
+    </li>
+</ul>
+</section>
+    {%endif%}
+    {% comment %} {% comment %} <p><strong>Age:</strong> {{ age }}</p> {% endcomment %}
+    {% comment %} <p><strong>gender:</strong> {{ gender }}</p>
     <p><strong>chest_pain:</strong> {{ chest_pain }}</p>
     <p><strong>res_blood:</strong> {{ res_blood }}</p>
     <p><strong>Cholesterol:</strong> {{ Cholesterol }}</p>
@@ -41,7 +69,7 @@
     <p><strong>ST:</strong> {{ ST }}</p>
     <p><strong>slope:</strong> {{ slope }}</p>
     <p><strong>CA:</strong> {{ CA }}</p>
-    <p><strong>thalassemia:</strong> {{ thalassemia }}</p>
+    <p><strong>thalassemia:</strong> {{ thalassemia }}</p> {% endcomment %}
 
     <footer>
     <h2 class="nametag">ABDULLAH &middot; MUHANNED</h2>

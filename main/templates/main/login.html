@@ -21,16 +21,19 @@
         <div class="back">
             <ui class="ch">
                 <li class="user-input">
+            <form method="post" action="">
+                {% csrf_token %}
                     <span class="user-data">Username: </span>
-                    <input class="inp-num" type="string" min="1" max="700"  placeholder="Enter your UserName">
+                    <input class="inp-num" type="string" name='username' min="1" max="700"  placeholder="Enter your UserName" required>
                 </li>
                 <li class="user-input">
                     <span class="user-data">your password: </span>
-                    <input class="inp-num" type="password" min="8" max="700" step="1" placeholder="Enter your password here!">
+                    <input class="inp-num" type="password" name='password' min="8" max="700" step="1" placeholder="Enter your password here!" required>
                 </li>
                 <div class="bot">
-                    <a class="chois" href="{% url 'main:specialist' %}"><botton>Enter</botton></a>
+                    <button class="chois" type="submit">Enter</button>
                 </div>
+            </form>
             </ui>
         </div>
         </section>

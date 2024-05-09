@@ -11,50 +11,78 @@
         rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="stylesheet" href="{% static 'workflow/CSS/style.css' %}">
+    <link rel="stylesheet" href="{% static 'workflow/CSS/log.css' %}">
     <title>PHD_dignosis</title>
 </head>
 <body>
     <nav class="nav_bar">
         <ul class="ulist">
+            {% if request.user.is_authenticated %}
+            <li>
+                <h1 class="username"><a href="{% url 'main:welcome' %}"> <i class="fa-solid fa-heart-pulse"></i>
+                        <span>{{request.user.username}}</span></a></h1>
+            </li>
+            {% else %}
             <li>
                 <h1 class="username"><a href="{% url 'main:specialist' %}"> <i class="fa-solid fa-heart-pulse"></i>
-                        <span>Username</span></a></h1>
+                        <span>Guest</span></a></h1>
             </li>
+            {% endif %}
             <li><a href="{% url 'main:profile' %}" class="profile">Profile</a></li>
             <li><a href="{% url 'main:history' %}" class="history">History</a></li>
         </ul>
     </nav>
-    <section class="pass">
-        <div class="back">
-        <ui class="ch">
-            <li class="sh-name">
-                <span class="firstname">First name: <span class="info">Abdullah</span></span>
-                
-                <span class="lastname">Last name: <span class="info">Althaqeb</span></span>
-                
-            </li>
-            <li class="email">
-                <span class="user-email">Email: <span class="info">aoob2001@gmail.com</span></span>
-            </li>
-            <li class="inp-wr">
-                <div class="inp-all">
-                    <h3>Change Password: </h3><span class="sec-note">your new password:</span>
+    {% if request.user.is_authenticated %}
+    <div class="return"><a class="arrow" href="{%url 'main:welcome'%}"><i class="fa-solid fa-arrow-left-long"></i><span class="arrow-note">Return to welcome page</span></a></div>
+        <section class="pass">
+            <div class="back">
+                <ui class="ch">
+                    <li class="user-input">
+                        <span class="user-data">Username: </span>
+                        <span class="info">{{request.user.username}} </span>
+                    </li>
+                    <li class="user-input">
+                        <span class="user-data">Email: </span>
+                        <span class="info">{{request.user.email}} </span>
+                    </li>
+                    <li class="user-input">
+                        <span class="user-data">change your password: </span>
+                        <input class="inp-num" type="password" min="8" max="700" step="1" placeholder="Enter your password here!">
+                    </li>
+                    <li class="user-input">
+                        <span class="user-data">Confirm Password: </span>
+                        <input class="inp-num" type="password" min="8" max="700" step="1" placeholder="Enter your password here!">
+                    </li>
+                    <div class="bot">
+                        <a class="chois" href="{% url 'main:specialist' %}"><botton>Enter</botton></a>
+                        <a class="chois" href="{% url 'main:logout' %}"><botton>logout</botton></a>
+                    </div>
+                </ui>
+            </div>
+            </section>
+            {% else %}
+            <div class="return"><a class="arrow" href="{%url 'main:welcome'%}"><i class="fa-solid fa-arrow-left-long"></i><span class="arrow-note">Return to welcome page</span></a></div>
+            <section class="pass">
+                <div class="back">
+                    <ui class="ch ">
+                        <h1 class='user-data message'>you are in the guest mode to have a Profile you must signup or login if you're alrady registered</h1>
+                        <div class="bot">
+                            <a class="chois" href="{% url 'main:signin' %}"><botton>signup</botton></a>
+                            <a class="chois" href="{% url 'main:login' %}"><botton>login</botton></a>
+                        </div>
+                    </ui>
                 </div>
-                <input class="inp-num" type="password" min="1" max="700" step="1" placeholder="Enter your password here!">
-            </li>
-            <li class="ch-pass">confirm password</li>
-        </ui>
-    </div>
-    </section>
-    <footer>
-        <h2 class="nametag">ABDULLAH &middot; MUHANNED</h2>
-        <ul class="footlist">
-            <li><a href="mailto:aoob2001@gmail.com"><i class="fa-solid fa-envelope" aria-hidden="true"></i> <span
-                        class="sr-only"> Email</span></a></li>
-            <li><a href="mailto:mohanadalhoqail@gmail.com"><i class="fa-solid fa-envelope" aria-hidden="true"></i> <span
-                        class="sr-only"> Email</span></a></li>
-        </ul>
-        <p class="copyright">&copy; 2024 ABDULLAH&MUHANNED. All rights reserved.</p>
-    </footer>
+                </section>
+            {% endif %}
+            <footer>
+                <h2 class="nametag">ABDULLAH &middot; MUHANNED</h2>
+                <ul class="footlist">
+                    <li><a href="mailto:aoob2001@gmail.com"><i class="fa-solid fa-envelope" aria-hidden="true"></i> <span
+                                class="sr-only"> Email</span></a></li>
+                    <li><a href="mailto:mohanadalhoqail@gmail.com"><i class="fa-solid fa-envelope" aria-hidden="true"></i> <span
+                                class="sr-only"> Email</span></a></li>
+                </ul>
+                <p class="copyright">&copy; 2024 ABDULLAH&MUHANNED. All rights reserved.</p>
+            </footer>
+
 </body>

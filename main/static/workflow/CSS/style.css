@@ -58,18 +58,29 @@ h1>a{
     flex-grow: 0;
     flex-shrink: 0;
     /* margin-left: 20px; */
-    background-color: hsl(0, 0%, 100%);
-    width: 40px;
     height: 40px;
     border-radius: 50%;
-    margin: 10px 0 0 10px;
+    margin: 0px 0 0 10px;
     padding:5px 0px 0 7px;
 }
 .arrow{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 250px;
     color:#28A745;
     text-decoration: none;
-    font-size: 25px;
-    width: 200px;
+    font-size: 30px;
+    font-weight: 800;
+}
+.arrow-note{
+    font-size: 17px;
+    font-family: var(--dosis);
+    font-weight: 600;
+    color: black;
+}
+.arrow [class*="fa-"]:hover{
+    color: #b92b27;
 }
 .empty{
     flex-grow: 0;
@@ -138,7 +149,7 @@ nav [class*="fa-"] {
     color: black;
 }
 nav [class*="fa-"]:hover{
-    color: blue;
+    color: #b92b27;
 }
 /* .inp-wr,.chi,.opti{
     display: block;

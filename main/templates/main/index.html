@@ -18,17 +18,24 @@
 <body>
     <nav class="nav_bar">
         <ul class="ulist">
+            {% if request.user.is_authenticated %}
             <li>
                 <h1 class="username"><a href="{% url 'main:specialist' %}"> <i class="fa-solid fa-heart-pulse"></i>
-                        <span>Username</span></a></h1>
+                        <span>{{request.user}}</span></a></h1>
             </li>
+            {% else %}
+            <li>
+                <h1 class="username"><a href="{% url 'main:welcome' %}"> <i class="fa-solid fa-heart-pulse"></i>
+                        <span>Guest</span></a></h1>
+            </li>
+            {% endif %}
             <li><a href="{% url 'main:profile' %}" class="profile">Profile</a></li>
             <li><a href="{% url 'main:history' %}" class="history">History</a></li>
         </ul>
     </nav>
+    <div class="return"><a class="arrow" href="{%url 'main:welcome'%}"><i class="fa-solid fa-arrow-left-long"></i><span class="arrow-note">Return to welcome page</span></a></div>
     <section class="sec-att">
         <div class="trans">
-            <div class="return"><a class="arrow" href="{%url 'main:welcome'%}">←</a></div>
         <div class="bullets">
             <span class="bullet current"></span>
             <span class="bullet"></span>
@@ -134,7 +141,7 @@
                             electrocardiogram (ECG) wherein the trace in
                             the ST segment is abnormally low below the baseline</span>
                     </div>
-                    <input class="inp-num" type="number" name="ST" min="1" max="3000" step="1.1"
+                    <input class="inp-num" type="number" name="ST" min="1" max="3000" step="0.1"
                         placeholder="only numbers accepted">
                 </li>
                 <button class="sub-but" type="button" onclick="previousStep(2)">Previous</button>

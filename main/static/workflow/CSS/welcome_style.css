@@ -9,6 +9,10 @@
     --dosis: 'Dosis', sans-serif;
     --font-family-sans-serif: cera-round-pro, "Helvetica Neue", "Helvetica", "Arial", sans-serif;
 }
+.hidden{
+    display: none !important;
+    opacity: 0;
+}
 body{
     /* max-width: 100%; */
     /* background: linear-gradient(190deg, #12c2e9 0%, #f64f59 100%); */

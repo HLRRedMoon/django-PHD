@@ -16,14 +16,17 @@ Including another URLconf
 """
 from django.urls import path
 from . import views
+from django.contrib.auth import views as auth_views
 
 app_name = "main"
 
 urlpatterns = [
     path("", views.welcome, name='welcome'), 
     path("specialist/",views.prediction, name="specialist"),
-    path("signin/", views.signin , name="signin"),
-    path("login/",views.login, name="login"),
+    path("signin/", views.registerPage , name="signin"),
+    path("login/",views.loginPage, name="login"),
+    path('logout/', views.logoutUser, name="logout"),
     path("profile/",views.profile, name="profile"),
     path("history/",views.history, name="history"),
+    
 ]

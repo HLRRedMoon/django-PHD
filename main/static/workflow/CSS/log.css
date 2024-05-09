@@ -18,6 +18,73 @@ body{
     /* background: linear-gradient(190deg, #12c2e9 0%, #f64f59 100%); */
     background-color: #e0fbfc;
 }
+.nav_bar{
+    font-family: var(--mono);
+    font-weight: 500;
+    /* font-size: 80%; */
+    padding: 30px;
+    background: linear-gradient(45deg, #1565C0 0%, #b92b27 80%);
+}
+h1>a{
+    font-family: var(--sans);
+    font-weight: 700;
+}
+.ulist>:first-child{
+    flex-basis: 100%;
+    text-align: center;
+}
+.ulist{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 15px 45px ;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+.nav_bar a{
+    color: black;
+    text-decoration: none;
+    display: block;
+
+}
+nav [class*="fa-"] {
+    font-size: 140%;
+    color: black;
+}
+nav [class*="fa-"]:hover{
+    color: #b92b27;
+}
+.return{
+    /* width: 20%; */
+    flex-grow: 0;
+    flex-shrink: 0;
+    /* margin-left: 20px; */
+    height: 40px;
+    border-radius: 50%;
+    margin: 0px 0 0 10px;
+    padding:5px 0px 0 7px;
+}
+.arrow{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 250px;
+    color:#28A745;
+    text-decoration: none;
+    font-size: 30px;
+    font-weight: 800;
+}
+.arrow-note{
+    font-size: 17px;
+    font-family: var(--dosis);
+    font-weight: 600;
+    color: black;
+}
+.arrow [class*="fa-"]:hover{
+    color: #b92b27;
+}
 .pass{
     display: flex;
     justify-content: center;
@@ -99,6 +166,7 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
+    gap: 10px;
     margin: 10px 0 20px 0;
 }
 .chois{
@@ -127,6 +195,9 @@ body{
     cursor: default;
     padding: 14px 0 20px 0;
 }
+.message{
+    margin: 34px 0;
+}
 /* footer start */
 footer{
     text-align: center;
@@ -151,9 +222,31 @@ footer{
 }
 
 .footlist [class*="fa-"]:hover {
-    color: blue;
+    color: rgb(70, 70, 105);
 }
 @media (min-width: 850px){
+    .nav_bar{
+        font-size: 120%;
+    }
+    nav {
+        /* max-width: 1200px; */
+        margin: 0 auto;
+    }
+    .left-arrow {
+        left: 40%;
+    }
+    
+    .right-arrow {
+        right: 40%;
+    }
+    .ulist>:first-child{
+        flex-basis: auto;
+        text-align: left;
+        margin-right: auto;
+    }
+    .arrow-note{
+        font-size: 19px;
+    }
     .back{
         width: 60%;
     }

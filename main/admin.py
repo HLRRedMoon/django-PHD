@@ -4,7 +4,6 @@ from tinymce.widgets import TinyMCE
 from django.db import models
 
 # Register your models here.
-
 class TutorialAdmin(admin.ModelAdmin):
     # fields = ["tutorial_title", "tutorial_content", "tutorial_published"]
     fieldsets = [
